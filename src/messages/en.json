@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "label": "portfolio · 2025",
+    "tagline": "Code, music, aesthetics —\nall in one place.",
+    "cta_projects": "See projects →",
+    "cta_contact": "Contact"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}
