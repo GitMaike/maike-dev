@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "blog": "Blog",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "label": "portafolio · 2025",
+    "tagline": "Código, música, estética —\ntodo en el mismo lugar.",
+    "cta_projects": "Ver proyectos →",
+    "cta_contact": "Contacto"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  }
+}
