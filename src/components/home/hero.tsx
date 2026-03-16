@@ -14,6 +14,8 @@ function useScramble(target: string) {
   const scramble = () => {
     if (running) return;
     setRunning(true);
+    timers.current.forEach(clearTimeout);
+    timers.current = [];
     const steps = target.length * 5;
     let step = 0;
 
@@ -68,7 +70,7 @@ export function Hero() {
         position: "relative",
         minHeight: "calc(100vh - 57px)",
         overflow: "hidden",
-        background: "#08090e",
+        background: "var(--bg)",
       }}
     >
       <CosmosCanvas />
