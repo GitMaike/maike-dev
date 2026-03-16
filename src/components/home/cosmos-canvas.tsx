@@ -28,6 +28,15 @@ export function CosmosCanvas() {
       "#8c6040",
     ];
 
+    const COLORS_LIGHT = [
+      "#6b6355",
+      "#6b6355",
+      "#a07828",
+      "#5a4a10",
+      "#2d6a8a",
+      "#7a3a18",
+    ];
+
     const stars = Array.from({ length: 200 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -55,8 +64,8 @@ export function CosmosCanvas() {
 
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = s.c;
-        ctx.globalAlpha = s.a;
+        ctx.fillStyle = isDark ? s.c : COLORS_LIGHT[Math.floor(Math.random() * COLORS_LIGHT.length)];
+        ctx.globalAlpha = isDark ? s.a : Math.min(s.a * 3.5, 0.9);
         ctx.fill();
       }
       ctx.globalAlpha = 1;

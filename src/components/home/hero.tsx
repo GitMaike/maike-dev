@@ -1,6 +1,7 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import { CosmosCanvas } from "./cosmos-canvas";
 
@@ -193,8 +194,10 @@ export function Hero() {
         </p>
 
         <div style={{ display: "flex", gap: 12, marginTop: 28 }}>
-          <button
+          <Link
+            href={`/${locale}/projects`}
             style={{
+              display: "inline-block",
               background: "#c8a84b",
               color: "#08090e",
               fontFamily: "monospace",
@@ -203,14 +206,16 @@ export function Hero() {
               textTransform: "uppercase",
               padding: "10px 22px",
               border: "none",
-              cursor: "pointer",
               fontWeight: 700,
+              textDecoration: "none",
             }}
           >
             {t("cta_projects")}
-          </button>
-          <button
+          </Link>
+          <Link
+            href={`/${locale}/contact`}
             style={{
+              display: "inline-block",
               background: "transparent",
               color: "var(--text-muted)",
               fontFamily: "monospace",
@@ -219,11 +224,11 @@ export function Hero() {
               textTransform: "uppercase",
               padding: "10px 22px",
               border: "1px solid #1c1c26",
-              cursor: "pointer",
+              textDecoration: "none",
             }}
           >
             {t("cta_contact")}
-          </button>
+          </Link>
         </div>
 
         <p
