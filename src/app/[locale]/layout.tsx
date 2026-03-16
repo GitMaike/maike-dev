@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { ThemeProvider } from "@/components/layout/theme-provider";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -24,7 +26,9 @@ export default async function LocaleLayout({
       <body>
         <ThemeProvider>
           <NextIntlClientProvider messages={messages}>
+            <Navbar />
             {children}
+            <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
