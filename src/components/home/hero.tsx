@@ -54,6 +54,7 @@ function useScramble(target: string) {
 
 export function Hero() {
   const t = useTranslations("hero");
+  const locale = useLocale();
   const maike = useScramble("maike");
   const dev = useScramble("dev");
 
