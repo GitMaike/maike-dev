@@ -2,15 +2,12 @@ import type { Project } from "@/types";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <a
-      href={`/pt/projects/${project.slug}`}
+    <div
       style={{
         display: "block",
         padding: "24px",
         border: "1px solid var(--border)",
-        textDecoration: "none",
-        transition: "border-color 0.2s",
-        cursor: "pointer",
+        cursor: "default",
       }}
     >
       <p
@@ -67,6 +64,6 @@ export function ProjectCard({ project }: { project: Project }) {
           </span>
         ))}
       </div>
-    </a>
+    </div>
   );
 }

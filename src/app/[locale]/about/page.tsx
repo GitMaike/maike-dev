@@ -40,7 +40,6 @@ export default function AboutPage() {
       >
         Sobre
       </h1>
-
       <div
         style={{
           display: "grid",
@@ -67,7 +66,6 @@ export default function AboutPage() {
           >
             MH
           </div>
-
           <h2
             style={{
               fontSize: 22,
@@ -80,7 +78,6 @@ export default function AboutPage() {
           >
             maike.dev
           </h2>
-
           <p
             style={{
               fontFamily: "monospace",
@@ -93,7 +90,6 @@ export default function AboutPage() {
           >
             Dev · Curitiba, BR
           </p>
-
           <p
             style={{
               fontSize: 14,
@@ -105,7 +101,6 @@ export default function AboutPage() {
             Em transição pra dev com olhar de produto. Venho do universo
             criativo — rap, DJ, música, referências visuais.
           </p>
-
           <p
             style={{
               fontSize: 14,
@@ -117,7 +112,6 @@ export default function AboutPage() {
             Estudo com o curso.dev e construo em público. Esse site é tanto
             portfólio quanto laboratório.
           </p>
-
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {tags.map((tag) => (
               <span
@@ -137,7 +131,6 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-
         <div>
           <p
             style={{
@@ -151,7 +144,6 @@ export default function AboutPage() {
           >
             // stack atual
           </p>
-
           <div style={{ marginBottom: 32 }}>
             {stack.map((item) => (
               <div
@@ -174,17 +166,18 @@ export default function AboutPage() {
                 >
                   {item.name}
                 </span>
-                <div style={{ display: "flex", gap: 4 }}>
+                <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
                   {[1, 2, 3, 4].map((dot) => (
                     <div
                       key={dot}
                       style={{
-                        width: 5,
-                        height: 5,
+                        width: 8,
+                        height: 8,
                         borderRadius: "50%",
                         background:
                           dot <= item.level ? "var(--accent)" : "transparent",
-                        border: "1px solid var(--border)",
+                        border: "1px solid var(--accent)",
+                        flexShrink: 0,
                       }}
                     />
                   ))}
@@ -192,7 +185,6 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-
           <p
             style={{
               fontFamily: "monospace",
@@ -205,7 +197,6 @@ export default function AboutPage() {
           >
             // aprendendo agora
           </p>
-
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {learning.map((item) => (
               <span
@@ -224,7 +215,6 @@ export default function AboutPage() {
               </span>
             ))}
           </div>
-
           <p
             style={{
               fontFamily: "monospace",
