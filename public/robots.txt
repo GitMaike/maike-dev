@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maike.dev.br/sitemap.xml
