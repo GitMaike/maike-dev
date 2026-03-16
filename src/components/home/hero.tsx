@@ -14,6 +14,8 @@ function useScramble(target: string) {
   const scramble = () => {
     if (running) return;
     setRunning(true);
+    timers.current.forEach(clearTimeout);
+    timers.current = [];
     const steps = target.length * 5;
     let step = 0;
 
@@ -68,7 +70,7 @@ export function Hero() {
         position: "relative",
         minHeight: "calc(100vh - 57px)",
         overflow: "hidden",
-        background: "#08090e",
+        background: "var(--bg)",
       }}
     >
       <CosmosCanvas />
@@ -122,7 +124,7 @@ export function Hero() {
               letterSpacing: "-0.04em",
               textTransform: "lowercase",
               color: "transparent",
-              WebkitTextStroke: "1.5px #dedad0",
+              WebkitTextStroke: "1.5px var(--text)",
             }}
           >
             {maike.text}
@@ -133,7 +135,7 @@ export function Hero() {
               fontWeight: 900,
               lineHeight: 0.88,
               color: "transparent",
-              WebkitTextStroke: "1.5px #c8a84b",
+              WebkitTextStroke: "1.5px var(--accent)",
             }}
           >
             .
@@ -146,7 +148,7 @@ export function Hero() {
               letterSpacing: "-0.04em",
               textTransform: "lowercase",
               color: "transparent",
-              WebkitTextStroke: "1.5px #dedad0",
+              WebkitTextStroke: "1.5px var(--text)",
             }}
           >
             {dev.text}
@@ -229,7 +231,7 @@ export function Hero() {
             right: 40,
             fontFamily: "monospace",
             fontSize: 8,
-            color: "#1a1a26",
+            color: "var(--text-faint)",
             letterSpacing: "0.1em",
           }}
         >
