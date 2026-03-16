@@ -1,6 +1,7 @@
 import { getAllProjects, getProjectBySlug } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
 
 export async function generateStaticParams() {
   const projects = getAllProjects();
@@ -12,7 +13,8 @@ export default async function ProjectPage({
 }: {
   params: Promise<{ slug: string; locale: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
   const project = await getProjectBySlug(slug);
 
   if (!project) notFound();

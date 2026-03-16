@@ -2,6 +2,7 @@ import { getAllPosts, getPostBySlug } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/utils";
+import { setRequestLocale } from "next-intl/server";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -13,7 +14,8 @@ export default async function PostPage({
 }: {
   params: Promise<{ slug: string; locale: string }>;
 }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
   const post = await getPostBySlug(slug);
 
   if (!post) notFound();
