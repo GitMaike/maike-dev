@@ -41,7 +41,8 @@ export function CosmosCanvas() {
     let animId: number;
 
     const draw = () => {
-      ctx.fillStyle = "#08090e";
+      const isDark = document.documentElement.classList.contains("dark");
+      ctx.fillStyle = isDark ? "#08090e" : "#f4f2ed";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       for (const s of stars) {
