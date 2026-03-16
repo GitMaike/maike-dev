@@ -8,12 +8,12 @@ const CHARS = "!@#$%*\\/|_+~^?0123456789ABCDEF";
 
 function useScramble(target: string) {
   const [text, setText] = useState(target);
-  const [running, setRunning] = useState(false);
+  const running = useRef(false);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const scramble = () => {
-    if (running) return;
-    setRunning(true);
+    if (running.current) return;
+    running.current = true;
     timers.current.forEach(clearTimeout);
     timers.current = [];
     const steps = target.length * 5;
@@ -35,18 +35,20 @@ function useScramble(target: string) {
         timers.current.push(t);
       } else {
         setText(target);
-        setRunning(false);
+        running.current = false;
       }
     };
     tick();
   };
 
-  const clear = () => {
+  const reset = () => {
     timers.current.forEach(clearTimeout);
     timers.current = [];
+    running.current = false;
+    setText(target);
   };
 
-  return { text, scramble, clear };
+  return { text, scramble, reset };
 }
 
 export function Hero() {
@@ -60,8 +62,8 @@ export function Hero() {
   };
 
   const handleLeave = () => {
-    maike.clear();
-    dev.clear();
+    maike.reset();
+    dev.reset();
   };
 
   return (
