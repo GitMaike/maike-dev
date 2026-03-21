@@ -1,24 +1,29 @@
 ---
 title: "Solo Tasking"
-description: "App de foco minimalista com timer Pomodoro e gestão de tarefas."
-stack: ["Next.js", "TypeScript", "Tailwind CSS"]
+description: "App de produtividade gamificado com sistema de XP, streaks, ranking e gestão de tarefas single-focus."
+stack: ["React Native", "Expo Router", "Supabase", "Zustand", "TypeScript"]
 githubUrl: "https://github.com/GitMaike/solotasking"
+liveUrl: "https://solotasking.vercel.app"
 date: "2025-01"
 featured: true
 ---
 
-## The problem
+## O problema
 
-Most productivity apps are bloated. I wanted something that does one thing well — help you focus on a single task at a time.
+A maioria dos apps de produtividade tenta fazer tudo ao mesmo tempo. Eu queria algo que fizesse uma coisa bem — te ajudar a focar em uma tarefa por vez, com a motivação certa pra manter o ritmo.
 
-## The process
+## O processo
 
-Built as a learning project while studying Next.js. Focused on state management, localStorage persistence and clean UI with no dependencies beyond the framework.
+Comecei como projeto de estudo em React Native com Expo Router. A ideia era simples: uma tarefa por vez. Mas conforme fui construindo, adicionei gamificação real — XP por tarefa concluída, penalidade por expiração, streaks diários e um ranking que sobe conforme você mantém consistência.
 
-## The solution
+## A solução
 
-A minimal timer app with task list, Pomodoro cycles and dark mode. No backend, no accounts — just focus.
+Um app de produtividade com alma de jogo. Dashboard gamificado com rank, XP e streak. Autenticação via email e Google. Persistência local com Zustand + sync remoto via Supabase. Testes com Jest. Deploy web funcionando.
 
-## What I'd do in V2
+## Stack técnica
 
-Add sound notifications, keyboard shortcuts and session history.
+- **Expo Router** — navegação por abas e deep links
+- **Supabase** — auth (email + Google) e banco remoto
+- **Zustand** — estado local com persistência
+- **Jest** — testes de store e regras de negócio
+- **Regras de XP** — recompensa por conclusão, penalidade por expiração, histórico completo
