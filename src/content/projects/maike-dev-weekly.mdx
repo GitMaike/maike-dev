@@ -1,0 +1,28 @@
+---
+title: "maike.dev weekly"
+description: "Newsletter curada com IA — agrega notícias de tech, música e cultura, gera conteúdo editorial via Gemini e envia por email."
+stack: ["Next.js", "TypeScript", "Google Gemini", "Resend", "Unsplash API"]
+githubUrl: "https://github.com/GitMaike/maike-dev-weekly"
+date: "2025-03"
+featured: true
+---
+
+## O problema
+
+Queria uma newsletter semanal que misturasse tech, música e cultura — com curadoria real e tom autoral. Não queria copiar e colar links: queria um pipeline que buscasse notícias automaticamente, me deixasse selecionar o que importa e gerasse texto editorial com personalidade.
+
+## O processo
+
+Construí em dois módulos. O **Curador** agrega RSS feeds (Hacker News, DEV.to, Pitchfork, Dazed) e NewsAPI, deduplica por URL e similaridade de título, filtra por data. O **Redator** recebe os artigos selecionados, manda pro Gemini 2.5 Flash com um prompt detalhado de tom de voz, enriquece com imagens do Unsplash e monta o email final.
+
+## A solução
+
+Um app full-stack de newsletter com fluxo completo: buscar → selecionar → gerar → editar → enviar. Interface dark com estética própria, preview editável inline, troca de imagens on-demand e envio via Resend com domínio verificado (maike.dev.br).
+
+## Stack técnica
+
+- **RSS + NewsAPI** — agregação de 13 feeds + 5 queries, deduplicação por Jaccard similarity
+- **Google Gemini 2.5 Flash** — geração de conteúdo editorial em PT-BR com tom controlado
+- **Unsplash API** — imagens contextuais por seção e por artigo
+- **Resend** — envio de email com domínio próprio verificado (DKIM + SPF)
+- **localStorage** — persistência de seleção e rascunhos entre módulos
