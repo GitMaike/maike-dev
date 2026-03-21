@@ -2,6 +2,7 @@ import { getAllProjects, getProjectBySlug } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
+import { NewsletterSubscribeForm } from "@/components/newsletter/subscribe-form";
 
 export async function generateStaticParams() {
   const projects = getAllProjects();
@@ -134,6 +135,12 @@ export default async function ProjectPage({
       >
         <MDXRemote source={project.content} />
       </div>
+
+      {slug === "maike-dev-weekly" && (
+        <div style={{ marginTop: 48 }}>
+          <NewsletterSubscribeForm />
+        </div>
+      )}
     </main>
   );
 }
