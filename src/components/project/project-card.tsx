@@ -1,14 +1,25 @@
+import Link from "next/link";
 import type { Project } from "@/types";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div
+    <Link
+      href={`/projects/${project.slug}`}
       style={{
         display: "block",
         padding: "24px",
         border: "1px solid var(--border)",
-        cursor: "default",
+        cursor: "pointer",
+        textDecoration: "none",
+        transition: "background 0.2s ease",
+        background: "var(--bg)",
       }}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.background = "var(--border)")
+      }
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.background = "var(--bg)")
+      }
     >
       <p
         style={{
@@ -64,6 +75,6 @@ export function ProjectCard({ project }: { project: Project }) {
           </span>
         ))}
       </div>
-    </div>
+    </Link>
   );
 }
